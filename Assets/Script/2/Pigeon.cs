@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pigeon : MonoBehaviour
 {
-    private enum Stats = {}
+    private enum Stats { Eat, Boundary, Run };
+    Stats stats = Stats.Eat;
 
     [SerializeField] private Vector2 playerRangeBox;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private Slider slider;
 
     void Awake()
     {
