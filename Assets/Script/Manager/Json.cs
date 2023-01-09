@@ -43,6 +43,10 @@ public class Json : MonoBehaviour
 
     public void Read()
     {
-        data = FAED.Load<Data>(Application.dataPath, jsonFileName);
+        try
+        {
+            data = FAED.Load<Data>(Application.dataPath, jsonFileName);
+        }
+        catch { }
     }
 }
