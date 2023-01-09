@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class Player : MonoBehaviour
             Json.Instance.data.maxGameStage = Json.Instance.data.nowGameStage + 1;
         }
         Json.Instance.Save();
+
+        DOTween.KillAll();
 
         SceneManager.LoadScene("Clear");
     }

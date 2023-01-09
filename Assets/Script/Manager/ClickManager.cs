@@ -5,7 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class ClickManager : MonoBehaviour
 {
-    public void Stage(int stageNumber)
+    public void Intro()
+    {
+        SceneManager.LoadScene("Intro");
+    }
+
+    public void Stage()
+    {
+        SceneManager.LoadScene("Stage");
+    }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene("EscapeRoom");
+    }
+
+    public void NextStage()
+    {
+        Json.Instance.Read();
+
+        if (Json.Instance.data.maxGameStage == Json.Instance.data.nowGameStage)
+        {
+            Json.Instance.data.maxGameStage = Json.Instance.data.nowGameStage + 1;
+        }
+        Json.Instance.data.nowGameStage += 1;
+
+        Json.Instance.Save();
+
+        SceneManager.LoadScene("EscapeRoom");
+    }
+
+    public void StageChose(int stageNumber)
     {
         if (Json.Instance.data.maxGameStage >= stageNumber)
         {
@@ -15,5 +45,10 @@ public class ClickManager : MonoBehaviour
 
             SceneManager.LoadScene("EscapeRoom");
         }
+    }
+
+    public void TextScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }

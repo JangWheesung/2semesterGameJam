@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11285556}
         m_TargetAssemblyTypeName: ClickManager, Assembly-CSharp
-        m_MethodName: Stage
+        m_MethodName: StageChose
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -730,7 +730,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2051128954}
         m_TargetAssemblyTypeName: ClickManager, Assembly-CSharp
-        m_MethodName: Stage
+        m_MethodName: StageChose
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
