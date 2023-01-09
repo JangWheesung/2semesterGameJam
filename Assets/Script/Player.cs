@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -33,15 +34,21 @@ public class Player : MonoBehaviour
 
     private void OpenDoor()
     {
+        Json.Instance.Read();
+        if (Json.Instance.data.maxGameStage == Json.Instance.data.nowGameStage)
+        {
+            Json.Instance.data.maxGameStage = Json.Instance.data.nowGameStage + 1;
+        }
+        Json.Instance.Save();
 
+        SceneManager.LoadScene("Clear");
     }
 
     private void OnCollisionEnter2D(Collision2D door)
     {
         if (getKey == true && door.transform.CompareTag("Door"))
         {
-            //스테이지 넘어가기
-            Debug.Log("Clear");
+            OpenDoor();
         }
     }
 }

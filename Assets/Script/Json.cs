@@ -8,7 +8,7 @@ using FD.Dev;
 public class Data
 {
     public int nowGameStage;
-    public int maxGameStage;
+    public int maxGameStage = 1;
 }
 
 public class Json : MonoBehaviour
