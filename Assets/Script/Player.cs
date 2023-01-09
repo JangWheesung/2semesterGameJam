@@ -47,11 +47,23 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Clear");
     }
 
-    private void OnCollisionEnter2D(Collision2D door)
+
+    private void Die()
     {
-        if (getKey == true && door.transform.CompareTag("Door"))
+        DOTween.KillAll();
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (getKey == true && collision.transform.CompareTag("Door"))
         {
             OpenDoor();
+        }
+        if (collision.transform.CompareTag("Trap"))
+        {
+            Die();
         }
     }
 }

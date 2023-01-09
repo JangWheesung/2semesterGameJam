@@ -15,6 +15,11 @@ public class ClickManager : MonoBehaviour
         SceneManager.LoadScene("Stage");
     }
 
+    public void Sound()
+    {
+        SceneManager.LoadScene("Sound");
+    }
+
     public void ReStart()
     {
         SceneManager.LoadScene("EscapeRoom");
