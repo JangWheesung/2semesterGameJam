@@ -13,13 +13,14 @@ public class Data
 
 public class Json : MonoBehaviour
 {
-    public Data data = new Data();
+    public Data data = new Data(); 
     public static Json Instance;
     private readonly string jsonFileName = "SaveData";
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
+        else { Destroy(gameObject); }
 
         if (!Directory.Exists(jsonFileName)) { Directory.CreateDirectory(jsonFileName); }
 
