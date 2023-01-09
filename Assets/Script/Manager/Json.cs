@@ -9,6 +9,7 @@ public class Data
 {
     public int nowGameStage;
     public int maxGameStage = 1;
+    public float sound;
 }
 
 public class Json : MonoBehaviour

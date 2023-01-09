@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
 
     private new Rigidbody2D rigidbody2D;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     public bool getKey { get; set; }
 
     void Awake()
@@ -18,6 +21,8 @@ public class Player : MonoBehaviour
         if (Instance == null) { Instance = this; }
 
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -31,6 +36,12 @@ public class Player : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
         Vector2 pos = new Vector2(x, y);
         rigidbody2D.velocity = speed * pos.normalized;
+
+        if (x == 0 && y == 0) animator.SetBool("Run", false);
+        else animator.SetBool("Run", true);
+
+        if (Input.GetKey(KeyCode.A)) spriteRenderer.flipX = true;
+        if (Input.GetKey(KeyCode.D)) spriteRenderer.flipX = false;
     }
 
     private void OpenDoor()
@@ -47,11 +58,23 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Clear");
     }
 
-    private void OnCollisionEnter2D(Collision2D door)
+
+    private void Die()
     {
-        if (getKey == true && door.transform.CompareTag("Door"))
+        DOTween.KillAll();
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (getKey == true && collision.transform.CompareTag("Door"))
         {
             OpenDoor();
+        }
+        if (collision.transform.CompareTag("Trap"))
+        {
+            Die();
         }
     }
 }
