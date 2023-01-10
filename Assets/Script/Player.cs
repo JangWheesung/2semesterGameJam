@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     [SerializeField] private float speed;
+    [SerializeField] private GameObject grid;
 
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
@@ -47,10 +48,14 @@ public class Player : MonoBehaviour
     private void OpenDoor()
     {
         Json.Instance.Read();
+
+        grid.transform.GetChild(Json.Instance.data.nowGameStage - 1).gameObject.SetActive(false);
+
         if (Json.Instance.data.maxGameStage == Json.Instance.data.nowGameStage)
         {
             Json.Instance.data.maxGameStage = Json.Instance.data.nowGameStage + 1;
         }
+
         Json.Instance.Save();
 
         DOTween.KillAll();
