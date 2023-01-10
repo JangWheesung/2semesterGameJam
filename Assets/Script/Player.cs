@@ -41,14 +41,15 @@ public class Player : MonoBehaviour
         if (x == 0 && y == 0) animator.SetBool("Run", false);
         else animator.SetBool("Run", true);
 
-        if (Input.GetKey(KeyCode.A)) spriteRenderer.flipX = true;
-        if (Input.GetKey(KeyCode.D)) spriteRenderer.flipX = false;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) spriteRenderer.flipX = true;
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) spriteRenderer.flipX = false;
     }
 
     private void OpenDoor()
     {
         Json.Instance.Read();
 
+        Debug.Log(Json.Instance.data.nowGameStage - 1);
         grid.transform.GetChild(Json.Instance.data.nowGameStage - 1).gameObject.SetActive(false);
 
         if (Json.Instance.data.maxGameStage == Json.Instance.data.nowGameStage)
