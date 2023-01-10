@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ClickManager : MonoBehaviour
 {
+    private AudioSource buttonSound;
+
+    private void Awake()
+    {
+        buttonSound = gameObject.GetComponent<AudioSource>();
+    }
+
     public void Intro()
     {
         SceneManager.LoadScene("Intro");
@@ -55,5 +62,10 @@ public class ClickManager : MonoBehaviour
     public void TextScene(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+
+    public void ButtonClickSound()
+    {
+        buttonSound.Play();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FD.Dev;
 
 public class Key : MonoBehaviour
 {
@@ -11,15 +12,17 @@ public class Key : MonoBehaviour
 
     private GameObject player;
     private SpriteRenderer spriteRenderer;
+    private AudioSource keySound;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
 
+        keySound = gameObject.GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
 
-        //스테이지에 따라 지정된 위치로 이동
+        FAED.PlaySound("d");
     }
 
     void Update()
@@ -39,6 +42,8 @@ public class Key : MonoBehaviour
         Player.Instance.getKey = true;
 
         spriteRenderer.enabled = true;
+
+        keySound.Play();
 
         transform.position = new Vector2(player.transform.position.x + playerGetPosition.x, player.transform.position.y + playerGetPosition.y);
         transform.parent = player.transform;
