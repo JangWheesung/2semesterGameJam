@@ -43,9 +43,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Wall
-    uniqueID: 443645357
-    locked: 0
-  - name: NotWall
-    uniqueID: 1729946835
-    locked: 0
