@@ -14,6 +14,8 @@ public class Key : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private AudioSource keySound;
 
+    private bool keyppear;
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
@@ -21,6 +23,8 @@ public class Key : MonoBehaviour
         keySound = gameObject.GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
+
+        keyppear = false;
     }
 
     void Update()
@@ -37,11 +41,17 @@ public class Key : MonoBehaviour
     {
         Player.Instance.getKey = true;
 
-        spriteRenderer.enabled = true;
+        KeySound();
+        keyppear = true;
 
-        keySound.Play();
+        spriteRenderer.enabled = true;
 
         transform.position = new Vector2(player.transform.position.x + playerGetPosition.x, player.transform.position.y + playerGetPosition.y);
         transform.parent = player.transform;
+    }
+
+    private void KeySound()
+    {
+        if(keyppear == false) keySound.Play();
     }
 }
