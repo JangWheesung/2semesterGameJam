@@ -9,7 +9,11 @@ public class Data
 {
     public int nowGameStage;
     public int maxGameStage = 1;
+
     public float sound;
+
+    public float globalLight = 0.5f;
+    public float touchLight = 0.5f;
 }
 
 public class Json : MonoBehaviour

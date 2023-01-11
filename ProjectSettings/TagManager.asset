@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Trap
+  - Touch
   layers:
   - Default
   - TransparentFX

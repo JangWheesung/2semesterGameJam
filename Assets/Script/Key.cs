@@ -21,8 +21,6 @@ public class Key : MonoBehaviour
         keySound = gameObject.GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
-
-        FAED.PlaySound("d");
     }
 
     void Update()
@@ -37,8 +35,6 @@ public class Key : MonoBehaviour
 
     void Appear()
     {
-        Debug.Log("Find");
-
         Player.Instance.getKey = true;
 
         spriteRenderer.enabled = true;
