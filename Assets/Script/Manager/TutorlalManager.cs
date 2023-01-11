@@ -12,6 +12,13 @@ public class TutorlalManager : MonoBehaviour
         SoundManager.Instance.StopGameBgm();
     }
 
+    private void Start()
+    {
+        Json.Instance.Read();
+        Json.Instance.data.nowGameStage = 0;
+        Json.Instance.Save();
+    }
+
     void Update()
     {
         if (Player.Instance.getKey == true) { turorlalText.text = "Escape Now!"; }
