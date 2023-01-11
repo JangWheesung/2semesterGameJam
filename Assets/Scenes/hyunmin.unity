@@ -4099,7 +4099,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.06}
+  m_Offset: {x: 0, y: -0.069607854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4110,7 +4110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.87}
+  m_Size: {x: 0.75, y: 0.6107843}
   m_EdgeRadius: 0
 --- !u!95 &222514360
 Animator:
@@ -27028,6 +27028,10 @@ PrefabInstance:
     - target: {fileID: 4467904112207269183, guid: be3c9e56d6b4cd8489578073f174c1b5, type: 3}
       propertyPath: m_Name
       value: Point Light 2D (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467904112207269183, guid: be3c9e56d6b4cd8489578073f174c1b5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be3c9e56d6b4cd8489578073f174c1b5, type: 3}
