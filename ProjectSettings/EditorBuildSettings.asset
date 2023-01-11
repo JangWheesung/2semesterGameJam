@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sound.unity
     guid: b595e40b0bd5abe418ab5db4deb0fb0b
+  - enabled: 1
+    path: Assets/Scenes/Tutorlal.unity
+    guid: 999982a13d8a8ad42ac13b214133548e
   m_configObjects: {}
