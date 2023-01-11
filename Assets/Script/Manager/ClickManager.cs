@@ -40,6 +40,11 @@ public class ClickManager : MonoBehaviour
         FAED.InvokeDelay(() => { SceneManager.LoadScene("EscapeRoom"); }, 0.2f);
     }
 
+    public void Tutorlal()
+    {
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("Tutorlal"); }, 0.2f);
+    }
+
     public void NextStage()
     {
         Json.Instance.Read();
