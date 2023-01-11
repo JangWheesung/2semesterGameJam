@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GameObject key;
     [SerializeField] private GameObject playerPos;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject Ending;
 
     void Start()
     {
@@ -22,5 +23,7 @@ public class StageManager : MonoBehaviour
         player.transform.position = playerPos.transform.GetChild(Json.Instance.data.nowGameStage - 1).transform.position;
 
         Json.Instance.Save();
+
+
     }
 }
