@@ -24,6 +24,5 @@ public class StageManager : MonoBehaviour
 
         Json.Instance.Save();
 
-
     }
 }
