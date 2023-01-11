@@ -64,6 +64,13 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Clear");
     }
 
+    private void OpenT_Door()
+    {
+        DOTween.KillAll();
+
+        SceneManager.LoadScene("Clear");
+    }
+
 
     private void Die()
     {
@@ -77,6 +84,10 @@ public class Player : MonoBehaviour
         if (getKey == true && collision.transform.CompareTag("Door"))
         {
             OpenDoor();
+        }
+        if (getKey == true && collision.transform.CompareTag("T_Door"))
+        {
+            OpenT_Door();
         }
         if (collision.transform.CompareTag("Trap"))
         {

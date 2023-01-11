@@ -20,7 +20,14 @@ public class ClickManager : MonoBehaviour
 
     public void Stage()
     {
-        FAED.InvokeDelay(() => { SceneManager.LoadScene("Stage"); }, 0.2f);
+        if (Json.Instance.data.maxGameStage == 0)
+        {
+            FAED.InvokeDelay(() => { SceneManager.LoadScene("Tutorlal"); }, 0.2f);
+        }
+        else
+        {
+            FAED.InvokeDelay(() => { SceneManager.LoadScene("Stage"); }, 0.2f);
+        }
     }
 
     public void Sound()
