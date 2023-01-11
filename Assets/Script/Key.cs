@@ -35,6 +35,8 @@ public class Key : MonoBehaviour
         {
             Appear();
         }
+
+        Range();
     }
 
     void Appear()
@@ -42,12 +44,27 @@ public class Key : MonoBehaviour
         Player.Instance.getKey = true;
 
         KeySound();
-        keyppear = true;
-
-        spriteRenderer.enabled = true;
 
         transform.position = new Vector2(player.transform.position.x + playerGetPosition.x, player.transform.position.y + playerGetPosition.y);
         transform.parent = player.transform;
+    }
+
+    private void Range()
+    {
+        Collider2D range = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
+
+        if (range != null)
+        {
+            keyppear = true;
+
+            spriteRenderer.enabled = true;
+        }
+        else
+        {
+            keyppear = false;
+
+            spriteRenderer.enabled = false;
+        }
     }
 
     private void KeySound()

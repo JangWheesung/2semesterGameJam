@@ -13,6 +13,6 @@ public class IconManager : MonoBehaviour
     {
         foreach (GameObject item in icons) { item.GetComponent<Image>().sprite = redButton; }
 
-        for (int i = 0; i < Json.Instance.data.maxGameStage; i++) { icons[i].GetComponent<Image>().sprite = blueButton; }
+        for (int i = 0; i < Mathf.Clamp(Json.Instance.data.maxGameStage, 0, 12); i++) { icons[i].GetComponent<Image>().sprite = blueButton; }
     }
 }
