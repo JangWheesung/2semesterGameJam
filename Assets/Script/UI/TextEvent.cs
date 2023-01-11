@@ -11,6 +11,8 @@ public class TextEvent : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.StopGameBgm();
+
         gameOverText.transform.DOScale(new Vector2(0.5f, 0.5f), 0.3f).SetEase(Ease.OutBounce)
         .OnComplete(() => {
             buttonParent.transform.DOMove(Vector2.zero, 1f).SetEase(Ease.OutQuad);

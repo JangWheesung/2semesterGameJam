@@ -12,6 +12,8 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.StopGameBgm();
+
         Json.Instance.Read();
 
         grid.transform.GetChild(Json.Instance.data.nowGameStage - 1).gameObject.SetActive(true);

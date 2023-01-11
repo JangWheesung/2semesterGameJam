@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SettingData
   m_EditorClassIdentifier: 
   poolData: {fileID: 0}
-  soundList: {fileID: 0}
+  soundList: {fileID: 11400000, guid: 9df0b6c7e24f9c948927ca3db0240d65, type: 2}

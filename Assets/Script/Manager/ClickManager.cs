@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FD.Dev;
 
 public class ClickManager : MonoBehaviour
 {
@@ -14,22 +15,22 @@ public class ClickManager : MonoBehaviour
 
     public void Intro()
     {
-        SceneManager.LoadScene("Intro");
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("Intro"); }, 0.2f);
     }
 
     public void Stage()
     {
-        SceneManager.LoadScene("Stage");
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("Stage"); }, 0.2f);
     }
 
     public void Sound()
     {
-        SceneManager.LoadScene("Sound");
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("Sound"); }, 0.2f);
     }
 
     public void ReStart()
     {
-        SceneManager.LoadScene("EscapeRoom");
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("EscapeRoom"); }, 0.2f);
     }
 
     public void NextStage()
@@ -44,7 +45,7 @@ public class ClickManager : MonoBehaviour
 
         Json.Instance.Save();
 
-        SceneManager.LoadScene("EscapeRoom");
+        FAED.InvokeDelay(() => { SceneManager.LoadScene("EscapeRoom"); }, 0.2f);
     }
 
     public void StageChose(int stageNumber)
@@ -55,7 +56,7 @@ public class ClickManager : MonoBehaviour
             Json.Instance.data.nowGameStage = stageNumber;
             Json.Instance.Save();
 
-            SceneManager.LoadScene("EscapeRoom");
+            FAED.InvokeDelay(() => { SceneManager.LoadScene("EscapeRoom"); }, 0.2f);
         }
     }
 
@@ -71,11 +72,16 @@ public class ClickManager : MonoBehaviour
 
     public void TextScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        FAED.InvokeDelay(() => { SceneManager.LoadScene(scene); }, 0.2f);
     }
 
     public void ButtonClickSound()
     {
         buttonSound.Play();
+    }
+
+    public void GameBgmReplayer()
+    {
+        SoundManager.Instance.PlayGameBgm();
     }
 }
